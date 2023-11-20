@@ -59,3 +59,20 @@ end
     frames << frame
 end
 
+while !game_over?(frames)
+  players.each do |player|
+    frame = []
+    2.times do
+      pins = throw_ball
+      frame << pins
+      break if pins
+
+ == 10
+    end
+    player[:frames] << frame
+    player[:score] = calculate_score(player[:frames])
+  end
+end
+
+winner = winner(players)
+puts "#{winner[:name]}が勝者です。最終スコア：#{winner[:score]}"
